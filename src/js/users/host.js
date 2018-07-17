@@ -10,19 +10,21 @@ import uuid from 'uuid-js';
 const session_uuid = uuid.create();
 const defaultHost = {
   id: session_uuid.toString(),
-  uuid: session_uuid, name: 'Host'
+  uuid: session_uuid,
+  name: 'Host'
 };
 
 const getHost = () => {
-  const stored = window.localStorage.getItem('host');
+  const stored = JSON.parse(window.localStorage.getItem('host'));
   if (stored) return stored;
-  window.localStorage.setItem('host', defaultHost);
+  window.localStorage.setItem('host', JSON.stringify(defaultHost));
   return defaultHost;
 };
+getHost(); // run once by default
 
 const setName = name => window.localStorage.setItem('host',
-    R.merge(getHost(), { name: name }));
+    JSON.stringify( R.merge(getHost(), { name: name }) ));
 
-    getHost(); // run once by default
+const clearHost = () => window.localStorage.removeItem('host');
 
-export { getHost, setName };
+export { getHost, setName, clearHost };
