@@ -54,8 +54,9 @@ gulp.task('bundle', [ 'index' ], function() {
     entries: [ './src/js/snake.js' ],
     debug: true,
     transform: [
-      [ 'babelify', { presets: [ 'es2017' ] } ]
-    ]
+      [ 'babelify', { presets: [ 'es2017' ], ignore: [ './src/libs/**' ] } ]
+    ],
+    ignore: [ './src/libs/**' ]
   };
   const opts = Object.assign({}, watchify.args, customOpts);
   return watchify(browserify(opts)).bundle()

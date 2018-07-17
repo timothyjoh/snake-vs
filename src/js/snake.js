@@ -4,7 +4,7 @@
 import { getHost, setName, clearHost } from './users/host';
 
 
-cheet('r e s e t', () => {
+window.cheet('r e s e t', () => {
   clearHost();
   window.location = window.location.href;
 });
