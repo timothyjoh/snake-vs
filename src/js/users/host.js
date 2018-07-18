@@ -4,7 +4,6 @@
 // store it in localStorage
 // get it out of localStorage if it exists
 
-import R from 'ramda';
 import uuid from 'uuid-js';
 
 const session_uuid = uuid.create();
@@ -22,8 +21,11 @@ const getHost = () => {
 };
 getHost(); // run once by default
 
-const setName = name => window.localStorage.setItem('host',
-    JSON.stringify( R.merge(getHost(), { name: name }) ));
+const setName = name => {
+  let host = getHost();
+  host.name = name;
+  window.localStorage.setItem('host', JSON.stringify( host ));
+}
 
 const clearHost = () => window.localStorage.removeItem('host');
 

@@ -1,4 +1,3 @@
-// import R from 'ramda';
 import directions from '../core/directions';
 
 let nextmoves = [];
