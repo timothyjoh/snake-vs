@@ -1,3 +1,9 @@
-const nextApple = state => state.apple
+import { eatsApple } from './collision'
+import { rndPoint } from '../core/point'
 
-export default nextApple;
+const nextApple = state => {
+  if (eatsApple(state)) return rndPoint(state);
+  return state.apple;
+}
+
+export { nextApple };
