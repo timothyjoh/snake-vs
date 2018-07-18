@@ -1,7 +1,22 @@
+// import R from 'ramda';
 import directions from '../core/directions';
 
+let nextmoves = [];
+
+const keyMoves = state => {
+  const newstate = {
+    rows:  state.rows,
+    cols:  state.cols,
+    moves: state.moves.concat(nextmoves),
+    snake: state.snake,
+    apple: state.apple
+  };
+  nextmoves = [];
+  return newstate;
+};
+
 const pushMove = dir => {
-  console.log("Moving Direction:", dir)
+  nextmoves.push(dir);
 };
 
 window.addEventListener('keydown', e => {
@@ -13,4 +28,4 @@ window.addEventListener('keydown', e => {
   }
 });
 
-export default null;
+export { keyMoves };

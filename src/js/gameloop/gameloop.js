@@ -1,14 +1,15 @@
 import { draw } from '../render/canvas';
+import { keyMoves } from '../input/keyboard';
 import { next, initialState } from '../engine/next';
 
-let state = initialState;
-
 const loop = () => {
+  state = keyMoves(state);
   state = next(state);
   draw(state);
 }
-const timer = setInterval(loop, 100);
+const timer = setInterval(loop, 50);
 
-draw(state); //initial draw
+let state = initialState;
+draw(state);
 
 export default null;
