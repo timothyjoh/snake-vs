@@ -1,4 +1,5 @@
-import { head, constrain } from '../core/algo'
+import { head } from '../core/algo'
+import { constrain } from '../core/point'
 
 const nextHead = state => {
   const constrainW = constrain(state.cols);
@@ -11,4 +12,4 @@ const nextHead = state => {
   };
 };
 
-export default nextHead;
+export { nextHead };

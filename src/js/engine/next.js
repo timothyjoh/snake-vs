@@ -1,7 +1,7 @@
 import d from '../core/directions';
-import nextMoves from './next_move';
-import nextSnake from './next_snake';
-import nextApple from './next_apple';
+import { nextMoves } from './next_move';
+import { nextSnake } from './next_snake';
+import { nextApple } from './next_apple';
 
 const initialState = {
   cols:  20,

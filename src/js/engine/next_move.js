@@ -1,8 +1,8 @@
-const tail = xs => xs.slice(1)
+import { tail } from '../core/algo'
 
 const nextMoves = state =>
   state.moves.length > 1 ?
     tail(state.moves)
     : state.moves
 
-export default nextMoves;
+export { nextMoves };

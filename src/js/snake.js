@@ -7,5 +7,3 @@ window.cheet('x x x', () => {
   clearHost();
   window.location = window.location.href;
 });
-
-
